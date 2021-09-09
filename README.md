@@ -14,6 +14,9 @@ ONDC aims at promoting open networks developed on open-sourced methodology, usin
 # 2. ONDC API Adators Flow
 ![alt text](https://github.com/dhiraj-nsdl/Beckn-API/blob/main/image/Adaptor%20Architecture%20flow%20updated.png)
 # 3. Postgres DB script
+Postgres DB scripts have been provided who wish to capture API transaction details in their database for audit.
 # 4. Sample Postman Collection
+Postman collection have been provided with sample json for each API services.
 # 5. Configuration Details
+
 # 6. NSDL BG Configuration Details
