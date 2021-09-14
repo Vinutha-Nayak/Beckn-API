@@ -1,9 +1,9 @@
-# ONDC API developed by NSDL
-This page will contains the details of ONDC APIs Adaptors developed by NSDL eGov over Beckn Protocol
+# ONDC API developed by NSDL eGov complied with Beckn Protocol
+This page will contains the details of ONDC APIs Adaptors developed by NSDL eGov complied with Beckn Protocol
 
 # Table of contents
 1. [Introduction](#introduction)
-2. [ONDC API Adators Flow](#paragraph1)
+2. [ONDC API Adaptor Flow](#paragraph1)
 3. [Postgres DB script](#paragraph1)
 4. [Sample Postman Collection](#paragraph1)
 5. [Configuration Details](#paragraph1)
@@ -18,7 +18,7 @@ Postgres DB scripts have been provided who wish to capture API transaction detai
 # 4. Sample Postman Collection
 Postman collection have been provided with sample json for each API services.
 # 5. Configuration Details
-  a. BAP Configuration
+  a. ONDC Buyer Node Configuration
 1. Application.yml 
 ```bash
       a) server:
@@ -57,7 +57,7 @@ Description:
 7. retrycount: number of time the retry should occur incase of timeout.
 8. authenticate: check for verification of authorization header. It takes only boolean value.
 
-b. BPP Configuration
+b. ONDC Seller Node Configuration
 1. Application.yml 
 ```bash
       a) server:
@@ -96,15 +96,15 @@ Description:
 7. retrycount: number of time the retry should occur incase of timeout.
 8. authenticate: check for verification of authorization header. It takes only boolean value.
   
-# 6. NSDL BG/Registry Configuration Details
-To get register at NSDL BG/Registry below field details required:
+# 6. ONDC Gateway/Registry Node Configuration Details
+To get register at ONDC Gateway/Registry Node below field details required:
 1. subscriber_id
 2. Domain
 3. Entity Type (BAP/BPP)
 4. CallBack URL for On_Subscribe
 5. Signing Public Key
 
-The end points for BG are as below:
+The end points for ONDC Gateway Node are as below:
 1. Search : https://pilot-gateway-1.beckn.nsdl.co.in/search
 2. On_search : https://pilot-gateway-1.beckn.nsdl.co.in/on_search
 
