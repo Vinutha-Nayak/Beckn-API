@@ -4,20 +4,25 @@ This page will contains the details of ONDC APIs Adaptors developed by NSDL eGov
 # Table of contents
 1. [Introduction](#introduction)
 2. [ONDC API Adaptor Flow](#paragraph1)
-3. [Postgres DB script](#paragraph1)
-4. [Sample Postman Collection](#paragraph1)
-5. [Configuration Details](#paragraph1)
-6. [NSDL BG Configuration Details](#paragraph1)
+3. [Deployment](#paragraph1)
+4. [Postgres DB script](#paragraph1)
+5. [Sample Postman Collection](#paragraph1)
+6. [Configuration Details](#paragraph1)
+7. [NSDL BG Configuration Details](#paragraph1)
 
 # 1. Introduction
 ONDC aims at promoting open networks developed on open-sourced methodology, using open specifications and open network protocols independent of any specific platform. NSDL eGov is helping building the ONDC API adaptors which is powered by Beckn Protocols for the netowrk participants who can easily run and integrate with their applications.
 # 2. ONDC API Adators Flow
 ![alt text](https://github.com/dhiraj-nsdl/Beckn-API/blob/main/image/Adaptor%20Architecture%20flow%20updated.png)
-# 3. Postgres DB script
+# 3. Deployment
+Two options are available:
+  a. Default - Run it as a microservice. (It can be also docker enabled) 
+  b. Integration with Java application. (Connect to NSDL eGov for more details)
+# 4. Postgres DB script
 Postgres DB scripts have been provided who wish to capture API transaction details in their database for audit.
-# 4. Sample Postman Collection
+# 5. Sample Postman Collection
 Postman collection have been provided with sample json for each API services.
-# 5. Configuration Details
+# 6. Configuration Details
   a. ONDC Buyer Node Configuration
 1. Application.yml 
 ```bash
@@ -36,16 +41,21 @@ Description :
     
     2. adaptor-config-bap.json
 ```bash
-         {
-           "keyid": “xxx",
-           "callbackurladaptor": “xxx",
-           "callbackurlapi": “xxx",
-           "privatekey": “xxx",
-           "algo": "ed25519",
-           "timeout": 1000,
-           "retrycount": 3,
-           "authenticate": true
-          }
+  Sample Json
+        {
+            "keyid": "nsdl.co.in|nsdl_bpp_1",
+            "private_key": "XXXXXX",
+            "api": [
+              {
+                "name": "search",
+                "http_entity_endpoint": "http://localhost:8079/bap/mock/on_search",
+                "http_timeout": 1000,
+                "http_retry_count": 3,
+                "header_validity": 600000,
+                "header_authentication": true
+              }
+            ]
+        }
 ```
 Description:
 1. keyid: it is the id that is used while registering as BAP to beckn.
@@ -75,16 +85,21 @@ Description :
     
     2. adaptor-config-bpp.json
 ```bash
-         {
-           "keyid": “xxx",
-           "callbackurladaptor": “xxx",
-           "callbackurlapi": “xxx",
-           "privatekey": “xxx",
-           "algo": "ed25519",
-           "timeout": 1000,
-           "retrycount": 3,
-           "authenticate": true
-          }
+Sample Json
+       {
+            "keyid": "nsdl.co.in|nsdl_bpp_1",
+            "private_key": "XXXXXXX",
+            "api": [
+              {
+                "name": "search",
+                "http_entity_endpoint": "http://localhost:8079/bpp/mock/search",
+                "http_timeout": 1000,
+                "http_retry_count": 3,
+                "header_validity": 600000,
+                "header_authentication": true
+              }
+            ]
+        }
 ```  
 Description:
 1. keyid: it is the id that is used while registering as BPP to beckn.
@@ -96,8 +111,8 @@ Description:
 7. retrycount: number of time the retry should occur incase of timeout.
 8. authenticate: check for verification of authorization header. It takes only boolean value.
   
-# 6. ONDC Gateway/Registry Node Configuration Details
-To get register at ONDC Gateway/Registry Node below field details required:
+# 7. ONDC Gateway Node/Registry Configuration Details
+To get register at ONDC Gateway Node/Registry Node below field details required:
 1. subscriber_id
 2. Domain
 3. Entity Type (BAP/BPP)
