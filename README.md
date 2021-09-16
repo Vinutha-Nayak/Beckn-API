@@ -12,12 +12,12 @@ This page will contains the details of ONDC APIs Adaptors developed by NSDL eGov
 
 # 1. Introduction
 ONDC aims at promoting open networks developed on open-sourced methodology, using open specifications and open network protocols independent of any specific platform. NSDL eGov is helping building the ONDC API adaptors which is powered by Beckn Protocols for the netowrk participants who can easily run and integrate with their applications.
-# 2. ONDC API Adators Flow
+# 2. ONDC API Adaptors Flow
 ![alt text](https://github.com/dhiraj-nsdl/Beckn-API/blob/main/image/Adaptor%20Architecture%20flow%20updated.png)
 # 3. Deployment
 Two options are available:
-  a. Default - Run it as a microservice. (It can be also docker enabled) 
-  b. Integration with Java application. (Connect to NSDL eGov for more details)
+1. Default - Run it as a microservice. (It can be also docker enabled) 
+2. Integration with Java application. (Connect to NSDL eGov for more details)
 # 4. Postgres DB script
 Postgres DB scripts have been provided who wish to capture API transaction details in their database for audit.
 # 5. Sample Postman Collection
@@ -47,8 +47,16 @@ Description :
             "private_key": "XXXXXX",
             "api": [
               {
-                "name": "search",
+                "name": "on_search",
                 "http_entity_endpoint": "http://localhost:8079/bap/mock/on_search",
+                "http_timeout": 1000,
+                "http_retry_count": 3,
+                "header_validity": 600000,
+                "header_authentication": true
+              },
+               {
+                "name": "on_select",
+                "http_entity_endpoint": "http://localhost:8079/bap/mock/on_select",
                 "http_timeout": 1000,
                 "http_retry_count": 3,
                 "header_validity": 600000,
@@ -57,15 +65,15 @@ Description :
             ]
         }
 ```
-Description:
-1. keyid: it is the id that is used while registering as BAP to beckn.
-2. callbackurladaptor: it is the call back url on which the BPP will send the response.
-3. callbackurlapi: it is the url of BAP to which the adaptor will finally send the response of callback. If not provided the callback response will end in adaptor.
-4. privatekey: it is the private key of the BAP. This will be used while signing the authorization header.
-5. algo: it is the algorithm used while signing the authorization header. Should be ed25519.
-6. timeout: it is the timeout in milliseconds used while making post call to BPP.
-7. retrycount: number of time the retry should occur incase of timeout.
-8. authenticate: check for verification of authorization header. It takes only boolean value.
+Description: (As given in above example, add call back url configuration in array)
+1. keyid: it is the id that is used while registering as buyer to beckn.
+2. private_key: it is the private key of the buyer. This will be used while signing the authorization header.
+3. name: name of the api like search/select/init.
+4. http_entity_endpoint: http url for the entity endpoint of buyer.
+5. http_timeout: http call timeout in milliseconds .
+6. http_retry_count: http retry count in case of timeout error.
+7. header_validity: auth header validity in milliseconds.
+8. header_authentication: auth header validation check. Allowed values true or false. If false auth header validation will be skipped.
 
 b. ONDC Seller Node Configuration
 1. Application.yml 
@@ -97,19 +105,27 @@ Sample Json
                 "http_retry_count": 3,
                 "header_validity": 600000,
                 "header_authentication": true
+              },
+              {
+                "name": "select",
+                "http_entity_endpoint": "http://localhost:8079/bpp/mock/select",
+                "http_timeout": 1000,
+                "http_retry_count": 3,
+                "header_validity": 600000,
+                "header_authentication": true
               }
             ]
         }
 ```  
-Description:
-1. keyid: it is the id that is used while registering as BPP to beckn.
-2. callbackurladaptor: it is the call back url on which the BPP will send the response.
-3. callbackurlapi: it is the url of BPP to which the adaptor will forward the request after validation.
-4. privatekey: it is the private key of the BPP. This will be used while signing the authorization header.
-5. algo: it is the algorithm used while signing the authorization header. Should be ed25519.
-6. timeout: it is the timeout in milliseconds used while making post call to BAP as part of callback.
-7. retrycount: number of time the retry should occur incase of timeout.
-8. authenticate: check for verification of authorization header. It takes only boolean value.
+Description: (As given in above example, add call back url configuration in array)
+1. keyid: it is the id that is used while registering as seller to beckn.
+2. private_key: it is the private key of the seller. This will be used while signing the authorization header.
+3. name: name of the api like search/select/init. 
+4. http_entity_endpoint: http url for the entity endpoint of seller. 
+5. http_timeout: http call timeout in milliseconds .
+6. http_retry_count: http retry count in case of timeout error.
+7. header_validity: auth header validity in milliseconds.
+8. header_authentication: auth header validation check. Allowed values true or false. If false auth header validation will be skipped.
   
 # 7. ONDC Gateway Node/Registry Configuration Details
 To get register at ONDC Gateway Node/Registry Node below field details required:
