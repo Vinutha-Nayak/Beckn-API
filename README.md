@@ -12,7 +12,7 @@ This page will contains the details of ONDC APIs Adaptors developed by NSDL eGov
 
 # 1. Introduction
 ONDC aims at promoting open networks developed on open-sourced methodology, using open specifications and open network protocols independent of any specific platform. NSDL eGov is helping building the ONDC API adaptors which is powered by Beckn Protocols for the netowrk participants who can easily run and integrate with their applications.
-# 2. ONDC API Adaptors Flow
+# 2. ONDC API Adaptor Flow
 ![alt text](https://github.com/dhiraj-nsdl/Beckn-API/blob/main/image/Adaptor%20Architecture%20flow%20updated.png)
 # 3. Deployment
 Two options are available:
