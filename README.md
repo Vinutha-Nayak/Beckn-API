@@ -9,6 +9,7 @@ This page will contains the details of ONDC APIs Adaptors developed by NSDL eGov
 5. [Sample Postman Collection](#paragraph1)
 6. [Configuration Details](#paragraph1)
 7. [NSDL BG Configuration Details](#paragraph1)
+8. [NSDL Sandbox](#paragraph1)
 
 # 1. Introduction
 ONDC aims at promoting open networks developed on open-sourced methodology, using open specifications and open network protocols independent of any specific platform. NSDL eGov is helping building the ONDC API adaptors which is powered by Beckn Protocols for the netowrk participants who can easily run and integrate with their applications.
@@ -23,7 +24,7 @@ Postgres DB scripts have been provided who wish to capture API transaction detai
 # 5. Sample Postman Collection
 Postman collection have been provided with sample json for each API services.
 # 6. Configuration Details
-  a. ONDC Buyer Node Configuration
+  a. BAP - buyer node Configuration ("buyer node" compliant with Beckn BAP specifications)
 1. Application.yml 
 ```bash
       a) server:
@@ -75,7 +76,7 @@ Description: (As given in above example, add call back url configuration in arra
 7. header_validity: auth header validity in milliseconds.
 8. header_authentication: auth header validation check. Allowed values true or false. If false auth header validation will be skipped.
 
-b. ONDC Seller Node Configuration
+b. BPP - seller node Configuration ("seller node" compliant with Beckn BPP specifications)
 1. Application.yml 
 ```bash
       a) server:
@@ -127,16 +128,18 @@ Description: (As given in above example, add call back url configuration in arra
 7. header_validity: auth header validity in milliseconds.
 8. header_authentication: auth header validation check. Allowed values true or false. If false auth header validation will be skipped.
   
-# 7. ONDC Gateway Node/Registry Configuration Details
-To get register at ONDC Gateway Node/Registry Node below field details required:
+# 7. BG - gateway node/Registry node Configuration Details
+To get register at BG - gateway node/Registry node below field details required:
 1. subscriber_id
 2. Domain
 3. Entity Type (BAP/BPP)
 4. CallBack URL for On_Subscribe
 5. Signing Public Key
 
-The end points for ONDC Gateway Node are as below:
+The end points for BG Gateway Node are as below:
 1. Search : https://pilot-gateway-1.beckn.nsdl.co.in/search
 2. On_search : https://pilot-gateway-1.beckn.nsdl.co.in/on_search
 
 Mail your details at : dhirajp@nsdl.co.in
+
+# 8. NSDL Sandbox
