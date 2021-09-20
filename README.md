@@ -32,8 +32,9 @@ Postman collection have been provided with sample json for each API services.
       b) beckn:
           persistence:
                  type: http|db-postgres
+                 audit-schema-error: true
           entity:
-                     type: bap
+                     type: buyer
 ```
 Description :
 1. port: it is server port number on which this jar will run
@@ -49,7 +50,7 @@ Description :
             "api": [
               {
                 "name": "on_search",
-                "http_entity_endpoint": "http://localhost:8079/bap/mock/on_search",
+                "http_entity_endpoint": "http://localhost:8079/buyer/mock/on_search",
                 "http_timeout": 1000,
                 "http_retry_count": 3,
                 "header_validity": 600000,
@@ -57,9 +58,17 @@ Description :
               },
                {
                 "name": "on_select",
-                "http_entity_endpoint": "http://localhost:8079/bap/mock/on_select",
+                "http_entity_endpoint": "http://localhost:8079/buyer/mock/on_select",
                 "http_timeout": 1000,
                 "http_retry_count": 3,
+                "header_validity": 600000,
+                "header_authentication": true
+              },
+              {
+                "name": "lookup",
+                "http_entity_endpoint": "https://pilot-gateway-1.beckn.nsdl.co.in/lookup",
+                "http_timeout": 5000,
+                "http_retry_count": 0,
                 "header_validity": 600000,
                 "header_authentication": true
               }
@@ -84,8 +93,9 @@ b. BPP - seller node Configuration ("seller node" compliant with Beckn BPP speci
       b) beckn:
           persistence:
                  type: http|db-postgres
+                 audit-schema-error: true
           entity:
-                     type: bpp
+                     type: seller
 ```  
 Description :
 1. port: it is server port number on which this jar will run
@@ -101,7 +111,7 @@ Sample Json
             "api": [
               {
                 "name": "search",
-                "http_entity_endpoint": "http://localhost:8079/bpp/mock/search",
+                "http_entity_endpoint": "http://localhost:8079/seller/mock/search",
                 "http_timeout": 1000,
                 "http_retry_count": 3,
                 "header_validity": 600000,
@@ -109,9 +119,17 @@ Sample Json
               },
               {
                 "name": "select",
-                "http_entity_endpoint": "http://localhost:8079/bpp/mock/select",
+                "http_entity_endpoint": "http://localhost:8079/seller/mock/select",
                 "http_timeout": 1000,
                 "http_retry_count": 3,
+                "header_validity": 600000,
+                "header_authentication": true
+              },
+              {
+                "name": "lookup",
+                "http_entity_endpoint": "https://pilot-gateway-1.beckn.nsdl.co.in/lookup",
+                "http_timeout": 5000,
+                "http_retry_count": 0,
                 "header_validity": 600000,
                 "header_authentication": true
               }
