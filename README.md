@@ -143,3 +143,16 @@ The end points for BG Gateway Node are as below:
 Mail your details at : dhirajp@nsdl.co.in
 
 # 8. NSDL Sandbox
+1. BG - Gateway Node:
+As mentioned in section 7, provide details to get register with BG gateway node.
+
+The end points for BG Gateway Node are as below:
+a. Search : https://pilot-gateway-1.beckn.nsdl.co.in/search
+b. On_search : https://pilot-gateway-1.beckn.nsdl.co.in/on_search
+
+2. Registry Node:
+As mentioned in section 7, provide details to get register with BG registry node.
+
+The end points for Registry Node are as below:
+a. https://pilot-gateway-1.beckn.nsdl.co.in/subscribe 
+b. https://pilot-gateway-1.beckn.nsdl.co.in/lookup
