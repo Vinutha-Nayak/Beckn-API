@@ -137,7 +137,7 @@ To get register at BG - gateway node/Registry node below field details required:
 5. Signing Public Key
 
 The end points for BG Gateway Node are as below:
-1. Search : https://pilot-gateway-1.beckn.nsdl.co.in/search
+1. Search : https://pilot-gateway-1.beckn.nsdl.co.in/search <br />
 2. On_search : https://pilot-gateway-1.beckn.nsdl.co.in/on_search
 
 Mail your details at : dhirajp@nsdl.co.in
@@ -146,13 +146,13 @@ Mail your details at : dhirajp@nsdl.co.in
 1. BG - Gateway Node:
 As mentioned in section 7, provide details to get register with BG gateway node.
 
-The end points for BG Gateway Node are as below:
-a. Search : https://pilot-gateway-1.beckn.nsdl.co.in/search
+The end points for BG Gateway Node are as below: <br />
+a. Search : https://pilot-gateway-1.beckn.nsdl.co.in/search <br />
 b. On_search : https://pilot-gateway-1.beckn.nsdl.co.in/on_search
 
 2. Registry Node:
 As mentioned in section 7, provide details to get register with BG registry node.
 
-The end points for Registry Node are as below:
-a. https://pilot-gateway-1.beckn.nsdl.co.in/subscribe 
+The end points for Registry Node are as below: <br />
+a. https://pilot-gateway-1.beckn.nsdl.co.in/subscribe <br />
 b. https://pilot-gateway-1.beckn.nsdl.co.in/lookup
