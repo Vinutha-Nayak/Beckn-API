@@ -21,6 +21,7 @@ create table api_audit(
 --create table api_audit_error
 create table api_audit_error(
 	id varchar(50) not null,
+	schema_class varchar(50) not null,
 	error text,
 	json json not null,
 	created_on timestamp(6) not null,
